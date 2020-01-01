@@ -1,15 +1,13 @@
-import sqlalchemy as db
 import Exceptions
 from dbBase import *
-from sqlalchemy import Column, String, Integer
-from sqlalchemy.orm import relationship
 
-
-class User(Base):
+class User(db.Model):
 	__tablename__ = 'Users'
-	id = Column(Integer, primary_key=True)
-	name = Column(String)
-	password = Column(String)
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String)
+	password = db.Column(db.String)
+	funds = db.Column(db.Integer)
+	
 	
 	def checkPassword(self, attempt):
 		if(self.password != attempt):
