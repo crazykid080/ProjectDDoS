@@ -1,6 +1,8 @@
-import User, Servers, WebPage
+import init, User
 from dbBase import *
 
+db.create_all()
+
 NUser = User.User("Crazykid080", "PasswordSHOULDBEAHASH")
-engine.add(NUser)
-engine.commit()
+db.session.add(NUser)
+db.session.commit()
